@@ -94,15 +94,10 @@ def test_bayes(test_data, prob):
 
 
 def generate_report(test_data, prob, output_file="report.txt"):
-  """
-  This function generates a report in text format containing:
-  1. Conditional probabilities P(Xi = xi | Y = y)
-  2. Class probabilities P(Y = y)
-  3. Scores and predicted class for each test instance
-  """
 
   # Open the output file for writing
   with open(output_file, 'w') as f:
+      
       # Write report header information (e.g., title, date)
       f.write(f"Naive Bayes Classifier Report\nDate: {pd.Timestamp.now().strftime('%Y-%m-%d')}\n\n")
 
@@ -135,16 +130,23 @@ def generate_report(test_data, prob, output_file="report.txt"):
 
 if __name__ == "__main__":
 
-    # Get the working dir
+    # Get the working directory
     current_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 
-    # Load in the training data file
-    train_data = pd.read_csv(current_dir + "/data/breast-cancer-training.csv")
-    del train_data[train_data.columns[0]]
+    # Load in the provided files if possible
+    if len(sys.argv) != 3:
+         print("Please provide a file to train on and a file to test on...")
+    
+    try:
+        # Load in the training data file
+        train_data = pd.read_csv(current_dir + f"/data/{sys.argv[1]}")
+        del train_data[train_data.columns[0]]
 
-    test_data = pd.read_csv(current_dir + "/data/breast-cancer-test.csv")
-    del test_data[test_data.columns[0]]
-
+        test_data = pd.read_csv(current_dir + f"/data/{sys.argv[2]}")
+        del test_data[test_data.columns[0]]
+    except:
+        print("Please provide the name of the files. The files need to be in the data dir to be loaded.")
+        
     prob = train_bayes(train_data)
 
      # Test the classifier
@@ -155,4 +157,6 @@ if __name__ == "__main__":
 
     accuracy = calculate_accuracy(predictions, actual_classes)
     print("Accuracy:", accuracy, "%")
+
+    # Generate output file
     generate_report(test_data, prob, output_file="sampleoutput.txt")
