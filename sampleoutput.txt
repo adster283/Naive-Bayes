@@ -1,0 +1,120 @@
+Naive Bayes Classifier Report
+Date: 2024-05-15
+
+**1. Conditional Probabilities (P(Xi = xi | Y = y))**
+
+Class: no-recurrence-events
+	Feature: age
+		P(age = 30-39) = 0.1111
+		P(age = 40-49) = 0.3228
+		P(age = 60-69) = 0.1958
+		P(age = 50-59) = 0.3386
+		P(age = 70-79) = 0.0265
+		P(age = 20-29) = 0.0053
+	Feature: menopause
+		P(menopause = premeno) = 0.5132
+		P(menopause = ge40) = 0.4603
+		P(menopause = lt40) = 0.0265
+	Feature: tumor-size
+		P(tumor-size = 30-34) = 0.1746
+		P(tumor-size = 20-24) = 0.1799
+		P(tumor-size = 15-19) = 0.1164
+		P(tumor-size = 0-4) = 0.0370
+		P(tumor-size = 25-29) = 0.1640
+		P(tumor-size = 50-54) = 0.0212
+		P(tumor-size = 10-14) = 0.1323
+		P(tumor-size = 40-44) = 0.0847
+		P(tumor-size = 35-39) = 0.0582
+		P(tumor-size = 5-9) = 0.0212
+		P(tumor-size = 45-49) = 0.0106
+	Feature: inv-nodes
+		P(inv-nodes = 0-2) = 0.8466
+		P(inv-nodes = 6-8) = 0.0370
+		P(inv-nodes = 9-11) = 0.0106
+		P(inv-nodes = 3-5) = 0.0847
+		P(inv-nodes = 15-17) = 0.0159
+		P(inv-nodes = 12-14) = 0.0053
+	Feature: node-caps
+		P(node-caps = no) = 0.8783
+		P(node-caps = yes) = 0.1217
+	Feature: deg-malig
+		P(deg-malig = 3) = 0.1958
+		P(deg-malig = 2) = 0.5132
+		P(deg-malig = 1) = 0.2910
+	Feature: breast
+		P(breast = left) = 0.5079
+		P(breast = right) = 0.4921
+	Feature: breast-quad
+		P(breast-quad = left_low) = 0.3704
+		P(breast-quad = right_up) = 0.1058
+		P(breast-quad = left_up) = 0.3492
+		P(breast-quad = right_low) = 0.0899
+		P(breast-quad = central) = 0.0847
+	Feature: irradiat
+		P(irradiat = no) = 0.8466
+		P(irradiat = yes) = 0.1534
+
+Class: recurrence-events
+	Feature: age
+		P(age = 50-59) = 0.2692
+		P(age = 40-49) = 0.3333
+		P(age = 30-39) = 0.1923
+		P(age = 60-69) = 0.2051
+	Feature: menopause
+		P(menopause = premeno) = 0.6154
+		P(menopause = ge40) = 0.3846
+	Feature: tumor-size
+		P(tumor-size = 15-19) = 0.0769
+		P(tumor-size = 40-44) = 0.0769
+		P(tumor-size = 35-39) = 0.0897
+		P(tumor-size = 25-29) = 0.2308
+		P(tumor-size = 0-4) = 0.0128
+		P(tumor-size = 30-34) = 0.2821
+		P(tumor-size = 20-24) = 0.1667
+		P(tumor-size = 45-49) = 0.0128
+		P(tumor-size = 50-54) = 0.0385
+		P(tumor-size = 10-14) = 0.0128
+	Feature: inv-nodes
+		P(inv-nodes = 0-2) = 0.5385
+		P(inv-nodes = 3-5) = 0.1923
+		P(inv-nodes = 15-17) = 0.0385
+		P(inv-nodes = 9-11) = 0.0641
+		P(inv-nodes = 6-8) = 0.1282
+		P(inv-nodes = 12-14) = 0.0256
+		P(inv-nodes = 24-26) = 0.0128
+	Feature: node-caps
+		P(node-caps = no) = 0.6026
+		P(node-caps = yes) = 0.3974
+	Feature: deg-malig
+		P(deg-malig = 2) = 0.3590
+		P(deg-malig = 1) = 0.1026
+		P(deg-malig = 3) = 0.5385
+	Feature: breast
+		P(breast = left) = 0.5513
+		P(breast = right) = 0.4487
+	Feature: breast-quad
+		P(breast-quad = left_low) = 0.3974
+		P(breast-quad = right_up) = 0.1667
+		P(breast-quad = central) = 0.0513
+		P(breast-quad = left_up) = 0.3077
+		P(breast-quad = right_low) = 0.0769
+	Feature: irradiat
+		P(irradiat = no) = 0.6154
+		P(irradiat = yes) = 0.3846
+
+**2. Class Probabilities (P(Y = y))**
+	P(Y = no-recurrence-events) = 0.1000
+	P(Y = recurrence-events) = 0.1000
+
+**3. Test Instance Details**
+	Instance	Score (no-recurrence)	Score (recurrence)	Predicted Class
+	1	0.0000	0.0000	recurrence-events
+	2	0.0003	0.0001	no-recurrence-events
+	3	0.0000	0.0000	no-recurrence-events
+	4	0.0001	0.0000	no-recurrence-events
+	5	0.0000	0.0000	recurrence-events
+	6	0.0005	0.0001	no-recurrence-events
+	7	0.0002	0.0002	recurrence-events
+	8	0.0003	0.0000	no-recurrence-events
+	9	0.0000	0.0002	recurrence-events
+	10	0.0000	0.0001	recurrence-events
